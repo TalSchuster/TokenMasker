@@ -6,12 +6,13 @@ The multiple-encoder pointer-generator is available [here](https://github.com/da
 ## Description
 The goal of the masker is to find the minimal group of tokens can be removed from a sentence in order to modify the relation of it with another setentence. For example, given a pair of claim and evidence sentences, it finds the words to delete from the evidence that will make it neutral with respect to the claim. The neutrality is determined by a pretrained classifier.
 
-For example:
+For example ($ symbols a masked token):
 
 * Claim: *Eddie Vedder sings.*
 * Evidence: *He is known for his powerful baritone vocals.*
-* Model's output: *He is known for $ powerful $ $.* ($ symbols a masked token)
+* Model's output: *He is known for $ powerful $ $.* 
 
+Illustration of the model:
 
 ![mask gen](mask_gen.png "mask gen")
 
