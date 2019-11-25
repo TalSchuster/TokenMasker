@@ -17,7 +17,7 @@ from allennlp.modules.seq2seq_encoders import Seq2SeqEncoder
 from allennlp.nn.util import get_text_field_mask, masked_softmax, weighted_sum
 from allennlp.nn import InitializerApplicator
 from allennlp.training.metrics import CategoricalAccuracy, Average
-from mg_allen_lib.training.metrics import AccuracyVSDeletion, F1SequenceMeasure
+from masker_allen_pkg.training.metrics import AccuracyVSDeletion, F1SequenceMeasure
 from allennlp.modules.matrix_attention.cosine_matrix_attention import CosineMatrixAttention
 from allennlp.modules.matrix_attention.bilinear_matrix_attention import BilinearMatrixAttention
 
@@ -71,10 +71,9 @@ class MaskGenerator(Model):
         self.transition_lamb = transition_lamb
         self.gumbel = gumbel
         if classifier_dir != "":
-            MODEL_NAME = 'model.tar.gz'
             overrides = '{"model": {"dropout": 0, "output_feedforward": {"dropout": 0}}}'
             overrides = ""
-            archive = load_archive(os.path.join(classifier_dir, MODEL_NAME), overrides=overrides)
+            archive = load_archive(classifier_dir, overrides=overrides)
 
             self.classifier = archive.model
             # Freeze parameters
