@@ -43,7 +43,7 @@ allennlp train allen_configs/mask_generator.jsonnet -s trained_mask_generator --
 
 ### Trained model
 
-To get the trained masked model and preprocessed FEVER trainied data:
+To get the trained masked model and preprocessed FEVER training data:
 ```
 wget https://www.dropbox.com/s/do5jptwmgroencn/model.tar.gz
 wget https://www.dropbox.com/s/o53i6urucny7q03/fever.train_no_nei.tokenized.jsonl
